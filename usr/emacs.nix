@@ -4,6 +4,7 @@ let
   myEmacs = pkgs.emacs.override {
     withGTK2 = false;
     withGTK3 = false;
+#   withGTK3 = true;
   }; 
   emacsWithPackages = (pkgs.emacsPackagesGen myEmacs).emacsWithPackages; 
 in
@@ -13,7 +14,7 @@ in
     evil
   ]) ++ (with epkgs.melpaPackages; [
     nix-mode
-    leuven-theme
+    spacemacs-theme
   ]) ++ [
     pkgs.notmuch   # From main packages set 
   ])
