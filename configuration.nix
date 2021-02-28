@@ -21,7 +21,7 @@ in
     pkgs.man-db
     pkgs.dbus
     pkgs.x11
-    (import usr/emacs.nix { inherit pkgs; })
+#    (import usr/emacs.nix { inherit pkgs; })
   ];
   
   environment.noXlibs = lib.mkForce false;
