@@ -17,7 +17,6 @@ in
  
   
   environment.systemPackages = [ 
-    pkgs.git
     pkgs.man-db
     pkgs.dbus
     pkgs.x11
@@ -40,7 +39,8 @@ in
 
   users.users.${defaultUser} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    home = "/home/nixos";
+    extraGroups = [ "wheel" "root" ];
   };
 
   users.users.root = {
