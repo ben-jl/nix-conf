@@ -27,7 +27,11 @@ in
   environment.etc.hosts.enable = false;
   environment.etc."resolv.conf".enable = false;
      
-  environment.variables = { DISPLAY = "$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0"; };
+  environment.variables = 
+  { 
+    DISPLAY = "$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0"; 
+    SSL_CERT_FILE="/etc/ssl/certs/ca-bundle.crt";
+  };
 
   networking.dhcpcd.enable = false;
   networking.nameservers = ["1.1.1.1"];
