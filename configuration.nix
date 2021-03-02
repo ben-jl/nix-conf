@@ -20,6 +20,7 @@ in
     pkgs.man-db
     pkgs.dbus
     pkgs.x11
+    pkgs.gitAndTools.gitFull
 #    (import usr/emacs.nix { inherit pkgs; })
   ];
   
