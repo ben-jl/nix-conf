@@ -2,7 +2,7 @@
 
 with lib;
 let
-  defaultUser = "nixos";
+  defaultUser = "ben";
   syschdemd = import ./syschdemd.nix { inherit lib pkgs config defaultUser; };
 in
 {
@@ -14,8 +14,10 @@ in
   boot.isContainer = true;
   
   services.xserver.enable = true;
- 
-  
+
+  nix.trustedUsers = ["root" "ben"];
+  nixpkgs.config.allowUnfree = true;  
+
   environment.systemPackages = [ 
     pkgs.man-db
     pkgs.dbus
@@ -44,8 +46,8 @@ in
 
   users.users.${defaultUser} = {
     isNormalUser = true;
-    home = "/home/nixos";
-    extraGroups = [ "wheel" "root" ];
+    home = "/home/ben";
+    extraGroups = [ "wheel" "root" "users" "networkmanager" ];
   };
 
   users.users.root = {
